@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="风兮水寒">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="React 16.8 React Hooks发布，可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性 不建议重写现有的应用程序，马上使用Hook，建议尝试在一些新组件中使用Hooks  Hook添加Hook的原因 在组件之间复用状态逻辑很难。   缺少复用机制 渲染属性和告诫组件导致层级冗余 使用 Hook 从组件中提取状态逻辑，使得这些逻辑可以单独测试并复用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React16.8 Hook特性">
+<meta property="og:url" content="http://yoursite.com/2019/07/13/React16-8-Hook特性/index.html">
 <meta property="og:site_name" content="风兮水寒">
+<meta property="og:description" content="React 16.8 React Hooks发布，可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性 不建议重写现有的应用程序，马上使用Hook，建议尝试在一些新组件中使用Hooks  Hook添加Hook的原因 在组件之间复用状态逻辑很难。   缺少复用机制 渲染属性和告诫组件导致层级冗余 使用 Hook 从组件中提取状态逻辑，使得这些逻辑可以单独测试并复用。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-13T07:32:13.795Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="风兮水寒">
+<meta name="twitter:title" content="React16.8 Hook特性">
+<meta name="twitter:description" content="React 16.8 React Hooks发布，可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性 不建议重写现有的应用程序，马上使用Hook，建议尝试在一些新组件中使用Hooks  Hook添加Hook的原因 在组件之间复用状态逻辑很难。   缺少复用机制 渲染属性和告诫组件导致层级冗余 使用 Hook 从组件中提取状态逻辑，使得这些逻辑可以单独测试并复用。">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/07/13/React16-8-Hook特性/"/>
 
 
 
 
 
-  <title>风兮水寒</title>
+  <title>React16.8 Hook特性 | 风兮水寒</title>
   
 
 
@@ -140,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +217,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/13/React16-8-Hook特性/" itemprop="url">React16.8 Hook特性</a></h1>
+          <h1 class="post-title" itemprop="name headline">React16.8 Hook特性</h1>
         
 
         <div class="post-meta">
@@ -298,9 +299,7 @@
       
 
       
-        
-          
-            <h4 id="React-16-8"><a href="#React-16-8" class="headerlink" title="React 16.8"></a>React 16.8</h4><ul>
+        <h4 id="React-16-8"><a href="#React-16-8" class="headerlink" title="React 16.8"></a>React 16.8</h4><ul>
 <li>React Hooks发布，可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性</li>
 <li>不建议重写现有的应用程序，马上使用Hook，建议尝试在一些新组件中使用Hooks</li>
 </ul>
@@ -379,8 +378,6 @@
 <h4 id="useReducer"><a href="#useReducer" class="headerlink" title="useReducer"></a>useReducer</h4><h5 id="原来的reduce更新逻辑："><a href="#原来的reduce更新逻辑：" class="headerlink" title="原来的reduce更新逻辑："></a>原来的reduce更新逻辑：</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">todosReducer</span>(<span class="params">state, action</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'add'</span>:</span><br><span class="line">      <span class="keyword">return</span> [...state, &#123;</span><br><span class="line">        text: action.text,</span><br><span class="line">        completed: <span class="literal">false</span></span><br><span class="line">      &#125;];</span><br><span class="line">    <span class="comment">// ... other actions ...</span></span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="使用reducer管理组件的内部state"><a href="#使用reducer管理组件的内部state" class="headerlink" title="使用reducer管理组件的内部state"></a>使用reducer管理组件的内部state</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">useReducer</span>(<span class="params">reducer, initialState</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [state, setState] = useState(initialState);</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">dispatch</span>(<span class="params">action</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> nextState = reducer(state, action);</span><br><span class="line">    setState(nextState);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> [state, dispatch];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="在组件中使用useReducer"><a href="#在组件中使用useReducer" class="headerlink" title="在组件中使用useReducer"></a>在组件中使用useReducer</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Todos</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [todos, dispatch] = useReducer(todosReducer, []);</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">handleAddClick</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">    dispatch(&#123; <span class="attr">type</span>: <span class="string">'add'</span>, text &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
       
     </div>
     
@@ -397,140 +394,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/09/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="风兮水寒">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="风兮水寒">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/09/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-09T23:54:10+08:00">
-                2018-04-09
-              </time>
+              <a href="/2018/04/09/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -540,10 +425,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -551,6 +437,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -571,8 +461,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -614,6 +513,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#React-16-8"><span class="nav-number">1.</span> <span class="nav-text">React 16.8</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hook"><span class="nav-number"></span> <span class="nav-text">Hook</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#添加Hook的原因"><span class="nav-number">0.1.</span> <span class="nav-text">添加Hook的原因</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是Hook"><span class="nav-number">1.</span> <span class="nav-text">什么是Hook</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#State-Hook"><span class="nav-number">2.</span> <span class="nav-text">State Hook</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Effect-Hook"><span class="nav-number">3.</span> <span class="nav-text">Effect Hook</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hook使用规则"><span class="nav-number">4.</span> <span class="nav-text">Hook使用规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义Hook"><span class="nav-number">5.</span> <span class="nav-text">自定义Hook</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义一个检查朋友是否在线的Hook"><span class="nav-number">5.1.</span> <span class="nav-text">定义一个检查朋友是否在线的Hook</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在多处使用自定义Hook"><span class="nav-number">5.2.</span> <span class="nav-text">在多处使用自定义Hook</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在多个Hook之间传递消息"><span class="nav-number">6.</span> <span class="nav-text">在多个Hook之间传递消息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#useReducer"><span class="nav-number">7.</span> <span class="nav-text">useReducer</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#原来的reduce更新逻辑："><span class="nav-number">7.1.</span> <span class="nav-text">原来的reduce更新逻辑：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用reducer管理组件的内部state"><span class="nav-number">7.2.</span> <span class="nav-text">使用reducer管理组件的内部state</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在组件中使用useReducer"><span class="nav-number">7.3.</span> <span class="nav-text">在组件中使用useReducer</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -747,6 +662,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
